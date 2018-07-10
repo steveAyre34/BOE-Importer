@@ -1,6 +1,6 @@
 
 $(document).ready(function () {
-    $.getJSON('/BOE_importer/assets/data/table-headers.json', function (counties) {
+    $.getJSON('/BOE-Importer/assets/data/table-headers.json', function (counties) {
         console.log(counties);
     });
 });
@@ -27,7 +27,7 @@ $(document).ready(function () {
             var form_data = new FormData();
             form_data.append('file', file_data);
             $.ajax({
-                url: '/BOE_importer/assets/php/upload-import.php', // point to server-side PHP script 
+                url: '/BOE-Importer/assets/php/upload-import.php', // point to server-side PHP script 
                 dataType: 'text',  // what to expect back from the PHP script, if anything
                 cache: false,
                 contentType: false,
@@ -36,7 +36,7 @@ $(document).ready(function () {
                 type: 'post',
                 success: function (response) {
                     var headers = JSON.parse(response);
-                    $.getJSON('/BOE_importer/assets/data/table-headers.json', function (headers_template) {
+                    $.getJSON('/BOE-Importer/assets/data/table-headers.json', function (headers_template) {
                         var import_headers = headers_template["import"];
                         if (checkSizes(headers, import_headers)) {
                             var header_errors = checkEachHeader(headers, import_headers);
@@ -47,7 +47,7 @@ $(document).ready(function () {
                             else {
                                 error_messages = error_messages.concat(header_errors["error_messages"]);
                                 stopLoader(element);
-                                errorsDetected($(element).parent().parent().find(".message"), header_errors);
+                                errorsDetected($(element).parent().parent().find(".message"), header_errors["errors"]);
                                 $(element).val('');
                             }
                         }
@@ -84,7 +84,7 @@ $(document).ready(function () {
             var form_data = new FormData();
             form_data.append('file', file_data);
             $.ajax({
-                url: '/BOE_importer/assets/php/upload-verified.php', // point to server-side PHP script 
+                url: '/BOE-Importer/assets/php/upload-verified.php', // point to server-side PHP script 
                 dataType: 'text',  // what to expect back from the PHP script, if anything
                 cache: false,
                 contentType: false,
@@ -93,7 +93,7 @@ $(document).ready(function () {
                 type: 'post',
                 success: function (response) {
                     var headers = JSON.parse(response);
-                    $.getJSON('/BOE_importer/assets/data/table-headers.json', function (headers_template) {
+                    $.getJSON('/BOE-Importer/assets/data/table-headers.json', function (headers_template) {
                         var import_headers = headers_template["verified"];
                         if (checkSizes(headers, import_headers)) {
                             var header_errors = checkEachHeader(headers, import_headers);
@@ -104,7 +104,7 @@ $(document).ready(function () {
                             else {
                                 error_messages = error_messages.concat(header_errors["error_messages"]);
                                 stopLoader(element);
-                                errorsDetected($(element).parent().parent().find(".message"), header_errors);
+                                errorsDetected($(element).parent().parent().find(".message"), header_errors["errors"]);
                                 $(element).val('');
                             }
                         }

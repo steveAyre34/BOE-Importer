@@ -3,7 +3,7 @@
 
 <head>
     <title>Importer - BOE Filter</title>
-    <link rel="stylesheet" type="text/css" href="/BOE_importer/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/BOE-Importer/assets/css/style.css">
 </head>
 
 <body class="background-grey">
@@ -28,7 +28,7 @@
                         <input id="import-file" type="file">
                     </div>
                     <div class="display-table-cell">
-                        <img class="loading-img" src="/BOE_importer/assets/images/loading.gif">
+                        <img class="loading-img" src="/BOE-Importer/assets/images/loading.gif">
                         <p class="message"></p>
                     </div>
                 </div>
@@ -40,7 +40,7 @@
                         <input id="verified-file" type="file">
                     </div>
                     <div class="display-table-cell">
-                        <img class="loading-img" src="/BOE_importer/assets/images/loading.gif">
+                        <img class="loading-img" src="/BOE-Importer/assets/images/loading.gif">
                         <p class="message"></p>
                     </div>
                 </div>
@@ -50,4 +50,4 @@
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="/BOE_importer/assets/js/step-1.js"></script>
+<script src="/BOE-Importer/assets/js/step-1.js"></script>

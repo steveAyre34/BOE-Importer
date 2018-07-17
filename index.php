@@ -1,16 +1,23 @@
 <?php include 'C:/xampp/htdocs/BOE-Importer/assets/php/database.php'; ?>
 
 <?php
+//Run the queries only when the submit box is clicked
+
    if(isset($_POST['submit'])){
     $selected_val = $_POST['locality'];  // Storing Selected Value In Variable
-    $import = '_import.csv';
-    $verified = '_verified.csv';
-    $import2 ='_import';
-    $verified2 ='_verified';
+    $import = '_import.csv';//String values
+    $verified = '_verified.csv';//String values
+    $import2 ='_import';//String values
+    $verified2 ='_verified';//String values
 
-    $query1 = "DROP TABLE IF EXISTS `$selected_val$import2`";
-    $result1 = $mysqli->query($query1) or die($mysqli->error.__LINE__);
-    //Queries
+    /*Queries to import Import file data*/
+    
+    //Drop the existing table for import file data to create new table with the same name
+
+            $query1 = "DROP TABLE IF EXISTS `$selected_val$import2`";
+            $result1 = $mysqli->query($query1) or die($mysqli->error.__LINE__);
+
+    //Create new table with the name of the table as county_import
 
             $query3 ="CREATE TABLE `$selected_val$import2` (
                 `voter_id` varchar(15) NOT NULL,
@@ -99,6 +106,9 @@
 
              $result3 = $mysqli->query($query3) or die($mysqli->error.__LINE__);
 
+    //Load the data from the file located in the assets/data/import table 
+    //with the name <county>_import to the table that we created in the database
+    
              $query4 = "LOAD DATA LOCAL INFILE 'C:/xampp/htdocs/BOE-Importer/assets/data/import/$selected_val$import'
              INTO TABLE `$selected_val$import2` 
              FIELDS TERMINATED BY ',' 
@@ -106,10 +116,14 @@
              IGNORE 1 ROWS";
             $result4 = $mysqli->query($query4) or die($mysqli->error.__LINE__);
 
-        //Verified queries
+    /*Queries to import verified file data*/
+
+    //Drop the existing table for verified file data to create new table with the same name
        
-        $query2 = "DROP TABLE IF EXISTS `$selected_val$verified2`";
-        $result2 = $mysqli->query($query2) or die($mysqli->error.__LINE__);
+            $query2 = "DROP TABLE IF EXISTS `$selected_val$verified2`";
+            $result2 = $mysqli->query($query2) or die($mysqli->error.__LINE__);
+    
+    //Create new table with the name of the table as <county>_verified
         
              $query5 ="CREATE TABLE `$selected_val$verified2` (
                 `voter_id` varchar(100) NOT NULL,
@@ -128,13 +142,16 @@
             ) ENGINE=InnoDB DEFAULT CHARSET=latin1";
 
         $result5 = $mysqli->query($query5) or die($mysqli->error.__LINE__);
+    
+    //Load the data from the file located in the assets/data/verified table 
+    //with the name <county>_verified to the table that we created in the database
 
         $query6 = "LOAD DATA LOCAL INFILE 'C:/xampp/htdocs/BOE-Importer/assets/data/verified/$selected_val$verified' 
         INTO TABLE `$selected_val$verified2` 
         FIELDS TERMINATED BY ',' 
         LINES TERMINATED BY '\n'
         IGNORE 1 ROWS";
-   $result6 = $mysqli->query($query6) or die($mysqli->error.__LINE__);
+        $result6 = $mysqli->query($query6) or die($mysqli->error.__LINE__);
     }
 ?>
 <!DOCTYPE html>

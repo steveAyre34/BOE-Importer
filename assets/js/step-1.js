@@ -216,15 +216,3 @@ function submitReady(element){
     });
 }
 
-//     function countySubmit(){
-//     $("select.county").change(function(){
-//         var selectedCounty = $(".county option:selected").val();
-//           if () {
-//             $("input[type=submit]").attr("disabled", "disabled");
-//             alert("There is no option selected");
-//         }
-//           else{
-//             alert("You have selected the county - " + selectedCounty);
-//           }
-//         });
-// }

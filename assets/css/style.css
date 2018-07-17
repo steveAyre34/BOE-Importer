@@ -10,7 +10,10 @@
 /* UNIVERSAL */
 
 .background-grey {
-    background: #dbdbdb;
+    background-image: url("https://pbs.twimg.com/profile_images/1759670043/CRST_logo_2009_400x400.gif");
+    background-position:top;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 .centered-div {
@@ -61,4 +64,24 @@
     width: 20px; 
     height: 20px;
     display: none;
+}
+#locality-dropdown{
+    background-color: aliceblue;
+
+}
+
+input[type='file']{
+    color:blue;
+  }
+
+input[type = 'submit']{
+    background: green;
+    font-size: large;
+    color:white;
+}
+
+input[disabled= 'disabled']{
+    background:transparent;
+    font-size: large;
+    color:black;
 }

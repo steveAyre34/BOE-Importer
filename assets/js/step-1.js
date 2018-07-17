@@ -7,6 +7,7 @@ $(document).ready(function () {
 
 (function () {
 
+    $("input[type=submit]").attr("disabled", "disabled");
     /* for import file of BOE filter */
     $(document).on("change", '#import-file', function () {
         var element = $(this);
@@ -19,8 +20,10 @@ $(document).ready(function () {
             stopLoader(element);
             errorsDetected($(element).parent().parent().find(".message"), 1);
             error_messages.push("Must be a .csv File");
+            alert("File must be a CSV file");
             $(element).val('');
-            console.log(error_messages)
+            console.log(error_messages);
+            $("input[type=submit]").attr("disabled", "disabled");
         }
         else {
             var file_data = $(element).prop('files')[0];
@@ -43,12 +46,16 @@ $(document).ready(function () {
                             if (header_errors["errors"] == 0) {
                                 stopLoader(element);
                                 readyState($(element).parent().parent().find(".message"));
+                                submitReady($(element).parent().parent().find(".message"));
+                                
                             }
                             else {
                                 error_messages = error_messages.concat(header_errors["error_messages"]);
                                 stopLoader(element);
                                 errorsDetected($(element).parent().parent().find(".message"), header_errors["errors"]);
                                 $(element).val('');
+                                submitReady($(element).parent().parent().find(".message"));
+                                alert("Please make sure that the table headers are in the correct format");
                             }
                         }
                         else {
@@ -56,6 +63,8 @@ $(document).ready(function () {
                             errorsDetected($(element).parent().parent().find(".message"), 1);
                             $(element).val('');
                             error_messages.push("Files have different header amounts");
+                            submitReady($(element).parent().parent().find(".message"));
+                            alert("Header sizes are different. Make sure that you are uploading the right file");
                         }
                         console.log(error_messages)
                     });
@@ -76,8 +85,10 @@ $(document).ready(function () {
             stopLoader(element);
             errorsDetected($(element).parent().parent().find(".message"), 1);
             error_messages.push("Must be a .csv File");
+            alert("File must be a CSV file");
             $(element).val('');
-            console.log(error_messages)
+            console.log(error_messages);
+            $("input[type=submit]").attr("disabled", "disabled");
         }
         else {
             var file_data = $(element).prop('files')[0];
@@ -100,12 +111,15 @@ $(document).ready(function () {
                             if (header_errors["errors"] == 0) {
                                 stopLoader(element);
                                 readyState($(element).parent().parent().find(".message"));
+                                submitReady($(element).parent().parent().find(".message"));
                             }
                             else {
                                 error_messages = error_messages.concat(header_errors["error_messages"]);
                                 stopLoader(element);
                                 errorsDetected($(element).parent().parent().find(".message"), header_errors["errors"]);
                                 $(element).val('');
+                                submitReady($(element).parent().parent().find(".message"));
+                                alert("Please make sure that the table headers are in the correct format");
                             }
                         }
                         else {
@@ -113,6 +127,8 @@ $(document).ready(function () {
                             errorsDetected($(element).parent().parent().find(".message"), 1);
                             $(element).val('');
                             error_messages.push("Files have different header amounts");
+                            submitReady($(element).parent().parent().find(".message"));
+                            alert("Header sizes are different. Make sure that you are uploading the right file");
                         }
                         console.log(error_messages)
                     });
@@ -182,4 +198,15 @@ function readyState(element) {
     $(element).removeClass("not-ready");
     $(element).addClass("ready");
     $(element).text("Ready");
+    
 }
+
+function submitReady(element){
+    $(document).ready(function () {
+    if($(element).hasClass("not-ready")){
+        $("input[type=submit]").attr("disabled", "disabled");   
+    }else if($(element).hasClass("ready")){
+        $("#submit").removeAttr("disabled");
+    }
+});
+    }

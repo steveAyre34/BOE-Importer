@@ -5,14 +5,16 @@
     $selected_val = $_POST['locality'];  // Storing Selected Value In Variable
     $import = '_import.csv';
     $verified = '_verified.csv';
+    $import2 ='_import';
+    $verified2 ='_verified';
 
-    $query1 = "DROP TABLE IF EXISTS `$selected_val.import`";
-    $result1 = $mysqli->query($query1) or die($query1);
-    $query2 = "DROP TABLE IF EXISTS `$selected_val.verified`";
-    $result2 = $mysqli->query($query2) or die($query2);
+    $query1 = "DROP TABLE IF EXISTS `$selected_val$import2`";
+    $result1 = $mysqli->query($query1) or die($mysqli->error.__LINE__);
+    $query2 = "DROP TABLE IF EXISTS `$$selected_val$verified2`";
+    $result2 = $mysqli->query($query2) or die($mysqli->error.__LINE__);
     //Queries
 
-            $query3 ="CREATE TABLE `$selected_val.import` (
+            $query3 ="CREATE TABLE `$selected_val$import2` (
                 `voter_id` varchar(15) NOT NULL,
                 `first_name` varchar(15) DEFAULT NULL,
                 `middle_name` varchar(15) DEFAULT NULL,
@@ -100,15 +102,15 @@
              $result3 = $mysqli->query($query3) or die($mysqli->error.__LINE__);
 
              $query4 = "LOAD DATA LOCAL INFILE 'C:/xampp/htdocs/BOE-Importer/assets/data/import/$selected_val$import'
-             INTO TABLE `$selected_val.import` 
+             INTO TABLE `$selected_val$import2` 
              FIELDS TERMINATED BY ',' 
              LINES TERMINATED BY '\n'
              IGNORE 1 ROWS";
-        $result4 = $mysqli->query($query4) or die($query4);
+            $result4 = $mysqli->query($query4) or die($mysqli->error.__LINE__);
 
         //Verified queries
         
-             $query5 ="CREATE TABLE `$selected_val.verified` (
+             $query5 ="CREATE TABLE `$selected_val$verified2` (
                 `voter_id` varchar(100) NOT NULL,
                 `full_name` varchar(150) NOT NULL,
                 `address1` varchar(150) NOT NULL,
@@ -127,11 +129,11 @@
         $result5 = $mysqli->query($query5) or die($mysqli->error.__LINE__);
 
         $query6 = "LOAD DATA LOCAL INFILE 'C:/xampp/htdocs/BOE-Importer/assets/data/verified/$selected_val$verified' 
-        INTO TABLE `$selected_val.verified` 
+        INTO TABLE `$selected_val$verified2` 
         FIELDS TERMINATED BY ',' 
         LINES TERMINATED BY '\n'
         IGNORE 1 ROWS";
-   $result6 = $mysqli->query($query6) or die($query6);
+   $result6 = $mysqli->query($query6) or die($mysqli->error.__LINE__);
     }
 ?>
 <!DOCTYPE html>

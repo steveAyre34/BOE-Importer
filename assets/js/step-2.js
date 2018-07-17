@@ -17,3 +17,16 @@ $.getJSON(url, function (data) {
   })
 });
 
+// function countySubmit(){
+  // $("select.county").change(function(){
+  //     var selectedCounty = $(".county option:selected").val();
+  //     $('#submit').click(function () {
+  //       if ($("#locality-dropdown")[0].selectedIndex <= 0) {
+  //         alert("There is no option selected");
+  //     }
+  //       else{
+  //         alert("You have selected the county - " + selectedCounty);
+  //       }
+  //     });
+  // });
+// }

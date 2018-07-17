@@ -10,8 +10,6 @@
 
     $query1 = "DROP TABLE IF EXISTS `$selected_val$import2`";
     $result1 = $mysqli->query($query1) or die($mysqli->error.__LINE__);
-    $query2 = "DROP TABLE IF EXISTS `$$selected_val$verified2`";
-    $result2 = $mysqli->query($query2) or die($mysqli->error.__LINE__);
     //Queries
 
             $query3 ="CREATE TABLE `$selected_val$import2` (
@@ -109,6 +107,9 @@
             $result4 = $mysqli->query($query4) or die($mysqli->error.__LINE__);
 
         //Verified queries
+       
+        $query2 = "DROP TABLE IF EXISTS `$selected_val$verified2`";
+        $result2 = $mysqli->query($query2) or die($mysqli->error.__LINE__);
         
              $query5 ="CREATE TABLE `$selected_val$verified2` (
                 `voter_id` varchar(100) NOT NULL,
@@ -158,7 +159,7 @@
         <div id="step1" class="centered-div">
             <div class="centered-div width-50 margin-bottom-10px">
                 <label>County</label>
-                <select id="locality-dropdown" name="locality"></select>
+                <select class="county"id="locality-dropdown" name="locality"></select>
             </div>
             <div class="centered-div display-table">
                 <div class="centered-div display-table-row">

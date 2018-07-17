@@ -48,6 +48,7 @@ $(document).ready(function () {
                                 readyState($(element).parent().parent().find(".message"));
                                 submitReady($(element).parent().parent().find(".message"));
                                 
+                                
                             }
                             else {
                                 error_messages = error_messages.concat(header_errors["error_messages"]);
@@ -112,6 +113,7 @@ $(document).ready(function () {
                                 stopLoader(element);
                                 readyState($(element).parent().parent().find(".message"));
                                 submitReady($(element).parent().parent().find(".message"));
+                                
                             }
                             else {
                                 error_messages = error_messages.concat(header_errors["error_messages"]);
@@ -203,10 +205,26 @@ function readyState(element) {
 
 function submitReady(element){
     $(document).ready(function () {
-    if($(element).hasClass("not-ready")){
-        $("input[type=submit]").attr("disabled", "disabled");   
-    }else if($(element).hasClass("ready")){
-        $("#submit").removeAttr("disabled");
-    }
-});
-    }
+        $("select.county").change(function(){
+        var selectedCounty = $(".county option:selected").val();
+            if($(element).hasClass("not-ready") || $("#locality-dropdown")[0].selectedIndex <= 0){
+                $("input[type=submit]").attr("disabled", "disabled");   
+            }else if($(element).hasClass("ready")){
+                $("#submit").removeAttr("disabled");
+            }
+        });
+    });
+}
+
+//     function countySubmit(){
+//     $("select.county").change(function(){
+//         var selectedCounty = $(".county option:selected").val();
+//           if () {
+//             $("input[type=submit]").attr("disabled", "disabled");
+//             alert("There is no option selected");
+//         }
+//           else{
+//             alert("You have selected the county - " + selectedCounty);
+//           }
+//         });
+// }

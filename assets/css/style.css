@@ -1,16 +1,16 @@
 #step1 {
     background: white;
-    width: 500px; 
+    width: 600px; 
     text-align: center; 
-    padding: 50px 0; 
-    vertical-align: middle; 
-    margin-top: 300px;
+    padding: 100px 0; 
+    /* vertical-align: middle;  */
+    margin-top: 130px;
 }
 
 /* UNIVERSAL */
 
 .background-grey {
-    background-image: url("https://pbs.twimg.com/profile_images/1759670043/CRST_logo_2009_400x400.gif");
+   background: gray;
     background-position:top;
     background-repeat: no-repeat;
     background-size: contain;
@@ -84,4 +84,8 @@ input[disabled= 'disabled']{
     background:transparent;
     font-size: large;
     color:black;
+}
+label{
+font-size:large;
+
 }

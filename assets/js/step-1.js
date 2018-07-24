@@ -8,6 +8,8 @@ $(document).ready(function () {
 (function () {
 
     $("input[type=submit]").attr("disabled", "disabled");
+    $("#button1").hide();
+    $("#button2").hide();
     /* for import file of BOE filter */
     $(document).on("change", '#import-file', function () {
         var element = $(this);
@@ -67,7 +69,16 @@ $(document).ready(function () {
                             submitReady($(element).parent().parent().find(".message"));
                             alert("Header sizes are different. Make sure that you are uploading the right file");
                         }
-                        console.log(error_messages)
+                        console.log(error_messages);
+                        if($(element).parent().parent().find(".message").hasClass("not-ready")){
+                            $("#button1").show();
+                            $("#button1").click( function(){
+                                alert(error_messages);
+                        });
+                    }
+                    else{
+                        $("#button1").hide();
+                    }
                     });
                 }
             });
@@ -113,8 +124,9 @@ $(document).ready(function () {
                                 stopLoader(element);
                                 readyState($(element).parent().parent().find(".message"));
                                 submitReady($(element).parent().parent().find(".message"));
-                                
-                            }
+                               
+                                    
+                        }
                             else {
                                 error_messages = error_messages.concat(header_errors["error_messages"]);
                                 stopLoader(element);
@@ -132,7 +144,16 @@ $(document).ready(function () {
                             submitReady($(element).parent().parent().find(".message"));
                             alert("Header sizes are different. Make sure that you are uploading the right file");
                         }
-                        console.log(error_messages)
+                        console.log(error_messages);
+                        if($(element).parent().parent().find(".message").hasClass("not-ready")){
+                            $("#button2").show();
+                            $("#button2").click( function(){
+                                alert(error_messages);
+                        });
+                    }
+                    else{
+                        $("#button2").hide();
+                    }
                     });
                 }
             });
@@ -189,7 +210,7 @@ function checkEachHeader(headers, headers_template) {
 function errorsDetected(element, errors) {
     $(element).removeClass("ready");
     $(element).parent().parent().find(".message").addClass("not-ready");
-    $(element).parent().parent().find(".message").text(errors + " error(s)");
+    // $(element).parent().parent().find(".message").text(errors + " error(s)");
 }
 
 /*==============================================*/
@@ -204,15 +225,15 @@ function readyState(element) {
 }
 
 function submitReady(element){
-    $(document).ready(function () {
-        $("select.county").change(function(){
-        var selectedCounty = $(".county option:selected").val();
-            if($(element).hasClass("not-ready") || $("#locality-dropdown")[0].selectedIndex <= 0){
+        // $("select.county").change(function(){
+        // var selectedCounty = ;
+        
+            if($(element).hasClass("not-ready")){
                 $("input[type=submit]").attr("disabled", "disabled");   
             }else if($(element).hasClass("ready")){
                 $("#submit").removeAttr("disabled");
             }
-        });
-    });
+        // });
 }
 
+// $('#sel-destination-tour').val() && 

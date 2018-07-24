@@ -129,7 +129,7 @@
          
     }else{
         echo '<script language="javascript">';
-        echo 'alert("County name is not matching with the Raw file selected")';  //not showing an alert box.
+        echo 'alert("County name is not matching with the Raw file chosen")';  //not showing an alert box.
         echo '</script>';
        
 }

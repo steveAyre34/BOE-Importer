@@ -49,7 +49,7 @@ $(document).ready(function () {
                                 stopLoader(element);
                                 readyState($(element).parent().parent().find(".message"));
                                 submitReady($(element).parent().parent().find(".message"));
-                                
+                                    
                                 
                             }
                             else {
@@ -58,7 +58,7 @@ $(document).ready(function () {
                                 errorsDetected($(element).parent().parent().find(".message"), header_errors["errors"]);
                                 $(element).val('');
                                 submitReady($(element).parent().parent().find(".message"));
-                                alert("Please make sure that the table headers are in the correct format");
+                                // alert("Please make sure that the table headers are in the correct format");
                             }
                         }
                         else {
@@ -67,7 +67,7 @@ $(document).ready(function () {
                             $(element).val('');
                             error_messages.push("Files have different header amounts");
                             submitReady($(element).parent().parent().find(".message"));
-                            alert("Header sizes are different. Make sure that you are uploading the right file");
+                            // alert("Header sizes are different. Make sure that you are uploading the right file");
                         }
                         console.log(error_messages);
                         if($(element).parent().parent().find(".message").hasClass("not-ready")){
@@ -133,7 +133,7 @@ $(document).ready(function () {
                                 errorsDetected($(element).parent().parent().find(".message"), header_errors["errors"]);
                                 $(element).val('');
                                 submitReady($(element).parent().parent().find(".message"));
-                                alert("Please make sure that the table headers are in the correct format");
+                                // alert("Please make sure that the table headers are in the correct format");
                             }
                         }
                         else {
@@ -142,7 +142,7 @@ $(document).ready(function () {
                             $(element).val('');
                             error_messages.push("Files have different header amounts");
                             submitReady($(element).parent().parent().find(".message"));
-                            alert("Header sizes are different. Make sure that you are uploading the right file");
+                            // alert("Header sizes are different. Make sure that you are uploading the right file");
                         }
                         console.log(error_messages);
                         if($(element).parent().parent().find(".message").hasClass("not-ready")){
@@ -210,7 +210,7 @@ function checkEachHeader(headers, headers_template) {
 function errorsDetected(element, errors) {
     $(element).removeClass("ready");
     $(element).parent().parent().find(".message").addClass("not-ready");
-    // $(element).parent().parent().find(".message").text(errors + " error(s)");
+    $(element).parent().parent().find(".message").text("Not Ready");
 }
 
 /*==============================================*/

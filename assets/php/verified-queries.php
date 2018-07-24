@@ -48,6 +48,8 @@
         LINES TERMINATED BY '\n'
         IGNORE 1 ROWS";
         $result6 = $mysqli->query($query6) or die($mysqli->error.__LINE__);
+
+        header("Location: /BOE-Importer/assets/php/success.php");
     }else{
         echo '<script language="javascript">';
         echo 'alert("County name is not matching with the Verified file selected")';  //not showing an alert box.

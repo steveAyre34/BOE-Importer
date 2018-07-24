@@ -23,13 +23,13 @@
 <form method="post" id="cpa-form" class="forms">
         <div id="step1" class="centered-div">
             <div class="centered-div width-50 margin-bottom-10px">
-                <label>County</label>
+                <label><b>*</b>County</label>
                 <select class="selectpicker" data-live-search="true" id="locality-dropdown" name="locality" required></select>
             </div>
             <div class="centered-div display-table">
                 <div class="centered-div display-table-row">
                     <div class="display-table-cell padding-30px">
-                        <label>Raw File</label>
+                        <label><b>*</b>Raw File</label>
                     </div>
                     <div class="display-table-cell">
                         <input id="import-file" type="file" name= "import" required>
@@ -44,7 +44,7 @@
                 </div>
                 <div class="centered-div display-table-row">
                     <div class="display-table-cell">
-                        <label>Verified File</label>
+                        <label><b>*</b>Verified File</label>
                     </div>
                     <div class="display-table-cell">
                         <input id="verified-file" type="file" name= "verified" required>
@@ -58,7 +58,7 @@
                     </div>
                 </div>
                 <div class="display-table-cell">
-                        <br/><input type="submit" id="submit" name="submit" value="submit" />
+                        <br/><input type="submit" id="submit" name="submit" value="Submit" />
                 </div>
             </div>
         </div>

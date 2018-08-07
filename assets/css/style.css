@@ -92,3 +92,34 @@ font-size:large;
 b{
     color: red;
 }
+
+#my-table1{
+
+/* background: white; */
+width: 50%;
+text-align: center;
+margin-left: 25%;
+margin-right:25%;
+margin-top:2%;
+
+
+}
+#my-table2{
+
+    /* background: white; */
+    width: 50%;
+    text-align: center;
+    margin-left: 25%;
+    margin-right:25%;
+    margin-top:2%;
+    
+    
+    }
+
+th{
+    color:red;
+}
+td{
+    color:blue;
+}
+

@@ -1,15 +1,10 @@
-// // $('select').on('change',function (e) {
-//     var optionSelected = $("select option:selected", this);
-//     var valueSelected = this.value;
-//     if(valueSelected !='Choose County'){
-        
-//   }else{
-//     $("#cpa-form").submit(function(e){
-//         e.preventDefault();
-//         alert("Please select a county");
-//       });
-//   }
-// // });
+ $("#submit").click( function(){
+    var optionSelected = $("select option:selected", this);
+    var valueSelected = this.value;
+    if(valueSelected =="Choose County"){
+        alert("Please select a county");
+  }
+});
 
 
 

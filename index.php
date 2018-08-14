@@ -65,30 +65,26 @@
    </form>
    <br>
 <div class= "my-table1" id="my-table1">
-   <table class="table">
-  <thead>
-    <tr>
-      <th id = "t1" scope="col"></th>
-    </tr>
-  </thead>
-  <tbody id="tbody1">
-    
-  </tbody>
-</table>
+    <table >
+        <thead>
+            <tr>
+            <th id = "t1" scope="col"></th>
+            </tr>
+        </thead>
+        <tbody id="tbody1"></tbody>
+   </table>
+</div>
 <div class= "my-table2" id="my-table2">
-   <table class="table">
+<table >
   <thead>
     <tr>
       <th id="t2" scope="col"></th>
     </tr>
   </thead>
-  <tbody id="tbody2">
-  </tbody>
+  <tbody id="tbody2"></tbody>
 </table>
 </div>
 </body>
-
-
 
 
     <!-- Latest compiled JavaScript -->

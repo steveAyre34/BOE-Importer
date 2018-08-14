@@ -129,7 +129,7 @@
          
     }else{
         echo '<script language="javascript">';
-        echo 'alert("County name is not matching with the Raw file chosen")';  //not showing an alert box.
+        echo 'alert("County name is not matching with the Raw file chosen.Please make sure that you saved the file with file name <county>_import.csv")';  //not showing an alert box.
         echo '</script>';
        
 }

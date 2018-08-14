@@ -52,7 +52,7 @@
         header("Location: /BOE-Importer/assets/php/success.php");
     }else{
         echo '<script language="javascript">';
-        echo 'alert("County name is not matching with the Verified file selected")';  //not showing an alert box.
+        echo 'alert("County name is not matching with the Verified file selected.Please make sure that you saved the file with file name <county>_verified.csv")';  //not showing an alert box.
         echo '</script>';
     }
    }

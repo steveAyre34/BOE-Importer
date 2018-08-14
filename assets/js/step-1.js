@@ -1,7 +1,6 @@
 
 $(document).ready(function () {
     $.getJSON('/BOE-Importer/assets/data/table-headers.json', function (counties) {
-        console.log(counties);
     });
 });
 
@@ -28,9 +27,9 @@ $(document).ready(function () {
             $("input[type=submit]").attr("disabled", "disabled");
             $("#button1").show();
                 $("#button1").click( function(){
-                                // alert(error_messages);
+                                       
                      if(error_messages.length){
-                                    // $("#my-errors").text(error_messages);
+                        $("#table1 tr").remove();
                         $("#my-table1").css("background", "white");
                         $("#t1").text("Raw File Errors:");
                         for( i=0; i< error_messages.length; i+=1){
@@ -90,7 +89,7 @@ $(document).ready(function () {
                             $("#button1").click( function(){
                                 // alert(error_messages);
                                 if(error_messages.length){
-                                    // $("#my-errors").text(error_messages);
+                                    $("#tbody1 tr").remove();
                                     $("#my-table1").css("background", "white");
                                     $("#t1").text("Raw File Errors:");
                                     for( i=0; i< error_messages.length; i+=1){
@@ -104,6 +103,7 @@ $(document).ready(function () {
                     }
                     else{
                         $("#button1").hide();
+                        $("#table1 tr").remove();
                     }
                     });
                 }
@@ -129,9 +129,8 @@ $(document).ready(function () {
             $("input[type=submit]").attr("disabled", "disabled");
             $("#button2").show();
                             $("#button2").click( function(){
-                                // alert(error_messages);
                                 if(error_messages.length){
-                                    // $("#my-errors").text(error_messages);
+                                    $("#tbody2 tr").remove();
                                     $("#my-table2").css("background", "white");
                                     $("#t2").text("Verified File Errors:");
                                     for( i=0; i< error_messages.length; i+=1){
@@ -204,6 +203,7 @@ $(document).ready(function () {
                     }
                     else{
                         $("#button2").hide();
+                        $("#table2 tr").remove();
                     }
                     });
                 }
@@ -272,19 +272,12 @@ function readyState(element) {
     $(element).removeClass("not-ready");
     $(element).addClass("ready");
     $(element).text("Ready");
-    
 }
 
 function submitReady(element){
-        // $("select.county").change(function(){
-        // var selectedCounty = ;
-        
             if($(element).hasClass("not-ready")){
                 $("input[type=submit]").attr("disabled", "disabled");   
             }else if($(element).hasClass("ready")){
                 $("#submit").removeAttr("disabled");
             }
-        // });
-}
-
-// $('#sel-destination-tour').val() && 
+        }

@@ -46,7 +46,7 @@
         <div id="step1" class="centered-div">
             <div class="centered-div width-50 margin-bottom-10px">
                 <label><b>*</b>County</label>
-                <select id="locality-dropdown" name="locality" required></select>
+                <select class= "form-control" id="locality-dropdown" name="locality" required></select>
             </div>
             <div class="centered-div display-table">
                 <div class="centered-div display-table-row">

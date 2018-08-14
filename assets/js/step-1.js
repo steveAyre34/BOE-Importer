@@ -1,6 +1,7 @@
 
 $(document).ready(function () {
     $.getJSON('/BOE-Importer/assets/data/table-headers.json', function (counties) {
+        console.log(counties);
     });
 });
 
@@ -26,20 +27,21 @@ $(document).ready(function () {
             console.log(error_messages);
             $("input[type=submit]").attr("disabled", "disabled");
             $("#button1").show();
-                $("#button1").click( function(){
-                                       
-                     if(error_messages.length){
-                        $("#table1 tr").remove();
-                        $("#my-table1").css("background", "white");
-                        $("#t1").text("Raw File Errors:");
-                        for( i=0; i< error_messages.length; i+=1){
-                            var row = error_messages[i];
-                            $("#tbody1").append($('<tr><td></td></tr>').text(row));
+                            $("#button1").click( function(){
+                                // alert(error_messages);
+                                if(error_messages.length){
+            
+                                    $("#tbody1 tr").remove();
+                                    $("#my-table1").css("background", "white");
+                                    $("#t1").text("Raw File Errors:");
+                                    for( i=0; i< error_messages.length; i+=1){
+                                        var row = error_messages[i];
+                                        $("#tbody1").append($('<tr><td></td></tr>').text(row));
                                             
-                        }
+                                    }
                                     
-                    }
-            });
+                                }
+                            });
         }
         else {
             var file_data = $(element).prop('files')[0];
@@ -89,6 +91,7 @@ $(document).ready(function () {
                             $("#button1").click( function(){
                                 // alert(error_messages);
                                 if(error_messages.length){
+            
                                     $("#tbody1 tr").remove();
                                     $("#my-table1").css("background", "white");
                                     $("#t1").text("Raw File Errors:");
@@ -127,8 +130,9 @@ $(document).ready(function () {
             $(element).val('');
             console.log(error_messages);
             $("input[type=submit]").attr("disabled", "disabled");
-            $("#button2").show();
-                            $("#button2").click( function(){
+            $("#button1").show();
+                            $("#button1").click( function(){
+                                // alert(error_messages);
                                 if(error_messages.length){
                                     $("#tbody2 tr").remove();
                                     $("#my-table2").css("background", "white");
@@ -190,6 +194,8 @@ $(document).ready(function () {
                             $("#button2").click( function(){
                                 // alert(error_messages);
                                 if(error_messages.length){
+            
+                                    $("#tbody2 tr").remove();
                                     $("#my-table2").css("background", "white");
                                     $("#t2").text("Verified File Errors:");
                                     for( i=0; i< error_messages.length; i+=1){
@@ -272,12 +278,19 @@ function readyState(element) {
     $(element).removeClass("not-ready");
     $(element).addClass("ready");
     $(element).text("Ready");
+    
 }
 
 function submitReady(element){
+        // $("select.county").change(function(){
+        // var selectedCounty = ;
+        
             if($(element).hasClass("not-ready")){
                 $("input[type=submit]").attr("disabled", "disabled");   
             }else if($(element).hasClass("ready")){
                 $("#submit").removeAttr("disabled");
             }
-        }
+        // });
+}
+
+// $('#sel-destination-tour').val() && 

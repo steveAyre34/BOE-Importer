@@ -128,10 +128,7 @@
             $result4 = $mysqli->query($query4) or die($mysqli->error.__LINE__);
          
     }else{
-        echo '<script language="javascript">';
-        echo 'alert("County name is not matching with the Raw file chosen.Please make sure that you saved the file with file name <county>_import.csv")';  //not showing an alert box.
-        echo '</script>';
-       
+        header("Location: /BOE-Importer/assets/php/failure.php");     
 }
 }
 ?>

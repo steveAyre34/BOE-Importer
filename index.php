@@ -20,11 +20,33 @@
 </head>
 
 <body class="background-grey">
+<div class= "my-table1" id="my-table1">
+   <table class= "table1" id="table1">
+        <thead>
+            <tr>
+                <th id = "t1" scope="col"></th>
+            </tr>
+        </thead>
+       <tbody id="tbody1"></tbody>
+    </table>
+</div>
+
+<div class= "my-table2" id="my-table2">
+   <table class= "table2" id="table2">
+        <thead>
+            <tr>
+                <th id="t2" scope="col"></th>
+            </tr>
+        </thead>
+        <tbody id="tbody2"></tbody>
+    </table>
+</div>
+<br/>
 <form method="post" id="cpa-form" class="forms">
         <div id="step1" class="centered-div">
             <div class="centered-div width-50 margin-bottom-10px">
                 <label><b>*</b>County</label>
-                <select id="locality-dropdown" name="county" required></select>
+                <select id="locality-dropdown" name="locality" required></select>
             </div>
             <div class="centered-div display-table">
                 <div class="centered-div display-table-row">
@@ -63,28 +85,10 @@
             </div>
         </div>
    </form>
-   <br>
-<div class= "my-table1" id="my-table1">
-    <table class= "table1" id="table1" >
-        <thead>
-            <tr>
-            <th id = "t1" scope="col"></th>
-            </tr>
-        </thead>
-        <tbody id="tbody1"></tbody>
-   </table>
-</div>
-<div class= "my-table2" id="my-table2">
-<table class= "table2" id="table2">
-  <thead>
-    <tr>
-      <th id="t2" scope="col"></th>
-    </tr>
-  </thead>
-  <tbody id="tbody2"></tbody>
-</table>
-</div>
+
 </body>
+
+
 
 
     <!-- Latest compiled JavaScript -->

@@ -27,21 +27,20 @@ $(document).ready(function () {
             console.log(error_messages);
             $("input[type=submit]").attr("disabled", "disabled");
             $("#button1").show();
-                            $("#button1").click( function(){
+                $("#button1").click( function(){
                                 // alert(error_messages);
-                                if(error_messages.length){
-            
+                     if(error_messages.length){
                                     // $("#my-errors").text(error_messages);
-                                    $("#my-table1").css("background", "white");
-                                    $("#t1").text("Raw File Errors:");
-                                    for( i=0; i< error_messages.length; i+=1){
-                                        var row = error_messages[i];
-                                        $("#tbody1").append($('<tr><td></td></tr>').text(row));
+                        $("#my-table1").css("background", "white");
+                        $("#t1").text("Raw File Errors:");
+                        for( i=0; i< error_messages.length; i+=1){
+                            var row = error_messages[i];
+                            $("#tbody1").append($('<tr><td></td></tr>').text(row));
                                             
-                                    }
+                        }
                                     
-                                }
-                            });
+                    }
+            });
         }
         else {
             var file_data = $(element).prop('files')[0];
@@ -91,7 +90,6 @@ $(document).ready(function () {
                             $("#button1").click( function(){
                                 // alert(error_messages);
                                 if(error_messages.length){
-            
                                     // $("#my-errors").text(error_messages);
                                     $("#my-table1").css("background", "white");
                                     $("#t1").text("Raw File Errors:");
@@ -129,13 +127,12 @@ $(document).ready(function () {
             $(element).val('');
             console.log(error_messages);
             $("input[type=submit]").attr("disabled", "disabled");
-            $("#button1").show();
-                            $("#button1").click( function(){
+            $("#button2").show();
+                            $("#button2").click( function(){
                                 // alert(error_messages);
                                 if(error_messages.length){
-            
                                     // $("#my-errors").text(error_messages);
-                                    $("my-table2").css("background", "white");
+                                    $("#my-table2").css("background", "white");
                                     $("#t2").text("Verified File Errors:");
                                     for( i=0; i< error_messages.length; i+=1){
                                         var row = error_messages[i];
@@ -194,9 +191,7 @@ $(document).ready(function () {
                             $("#button2").click( function(){
                                 // alert(error_messages);
                                 if(error_messages.length){
-            
-                                    // $("#my-errors").text(error_messages);
-                                    $("my-table2").css("background", "white");
+                                    $("#my-table2").css("background", "white");
                                     $("#t2").text("Verified File Errors:");
                                     for( i=0; i< error_messages.length; i+=1){
                                         var row = error_messages[i];

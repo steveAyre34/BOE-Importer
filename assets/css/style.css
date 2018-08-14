@@ -67,7 +67,6 @@
 }
 #locality-dropdown{
     font-size: medium;
-    /* height: 30px; */
 
 }
 
@@ -120,7 +119,7 @@ margin-top:2%;
 th{
     color:red;
 }
-tr{
+td{
     color:blue;
 }
 

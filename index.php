@@ -24,7 +24,7 @@
         <div id="step1" class="centered-div">
             <div class="centered-div width-50 margin-bottom-10px">
                 <label><b>*</b>County</label>
-                <select class="selectpicker" data-live-search="true" id="locality-dropdown" name="locality" required></select>
+                <select id="locality-dropdown" name="county" required></select>
             </div>
             <div class="centered-div display-table">
                 <div class="centered-div display-table-row">
@@ -65,7 +65,7 @@
    </form>
    <br>
 <div class= "my-table1" id="my-table1">
-    <table >
+    <table class= "table1" id="table1" >
         <thead>
             <tr>
             <th id = "t1" scope="col"></th>
@@ -75,7 +75,7 @@
    </table>
 </div>
 <div class= "my-table2" id="my-table2">
-<table >
+<table class= "table2" id="table2">
   <thead>
     <tr>
       <th id="t2" scope="col"></th>
@@ -90,4 +90,3 @@
     <!-- Latest compiled JavaScript -->
     <script src="/BOE-Importer/assets/js/step-1.js"></script>
     <script src="/BOE-Importer/assets/js/step-2.js"></script>
-    <script src="/BOE-Importer/assets/js/step-3.js"></script>

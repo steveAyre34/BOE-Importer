@@ -18,7 +18,7 @@
 <body>
 
         <div class="jumbotron text-xs-center">
-        <h2 class="display-3" color="red">Failed to Import files</h2>
+        <h2 class="display-3" color="red">Failed to Import files :(</h2>
         <p class="lead"><strong>1.Please make sure file names are saved with proper naming pattern<br/> 2.Please make sure County name is matching with Files choosen</strong></p>
         <hr>
         <p class="lead">

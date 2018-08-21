@@ -1,3 +1,4 @@
+<!-- including all the required PHP files here -->
 <?php include 'C:/xampp/htdocs/BOE-Importer/assets/php/database.php'; ?>
 <?php include 'C:/xampp/htdocs/BOE-Importer/assets/php/import-queries.php'; ?>
 <?php include 'C:/xampp/htdocs/BOE-Importer/assets/php/verified-queries.php'; ?>
@@ -20,28 +21,7 @@
 </head>
 
 <body class="background-grey">
-<div class= "my-table1" id="my-table1">
-   <table class= "table1" id="table1">
-        <thead>
-            <tr>
-                <th id = "t1" scope="col"></th>
-            </tr>
-        </thead>
-       <tbody id="tbody1"></tbody>
-    </table>
-</div>
 
-<div class= "my-table2" id="my-table2">
-   <table class= "table2" id="table2">
-        <thead>
-            <tr>
-                <th id="t2" scope="col"></th>
-            </tr>
-        </thead>
-        <tbody id="tbody2"></tbody>
-    </table>
-</div>
-<br/>
 <form method="post" id="cpa-form" class="forms">
         <div id="step1" class="centered-div">
             <div class="centered-div width-50 margin-bottom-10px">
@@ -61,7 +41,7 @@
                         <p class="message">&nbsp</p>
                     </div>
                     <div class= "errorcheck">
-                        <button class="btn-danger" id="button1" type="button">View Errors </button>
+                        <button class="btn-danger" id="button1" type="button" data-toggle="modal" data-target="#myModal">View Errors</button>
                     </div>
                 </div>
                 <div class="centered-div display-table-row">
@@ -76,7 +56,7 @@
                         <p class="message"></p>
                     </div>
                     <div class= "errorcheck">
-                        <button class="btn-danger" id="button2" type="button">View Errors </button>
+                        <button class="btn-danger" id="button2" type="button" data-toggle="modal" data-target="#myModal">View Errors </button>
                     </div>
                 </div>
                 <div class="display-table-cell">
@@ -85,6 +65,29 @@
             </div>
         </div>
    </form>
+
+    <div class="container" id ="modal-id">
+  <!-- Modal window to show the error messages-->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Please remove below errors from the file and upload again</h4>
+        </div>
+        <div class="modal-body" id="modal-body">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
 
 </body>
 

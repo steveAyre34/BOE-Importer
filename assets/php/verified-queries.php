@@ -9,8 +9,6 @@
     $verified2 ='_verified';//String values
     $fileName = substr($file_name, 0, -13);
     $selectedVal = strtolower($selected_val);
-    // echo "The file selecetd to import is $fileName " ;
-    // echo "The county selected is $selectedVal";
      
     /*Queries to import verified file data*/
        

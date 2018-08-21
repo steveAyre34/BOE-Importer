@@ -8,8 +8,6 @@
     $import2 ='_import';//String values
     $fileName = substr($file_name, 0, -11);
     $selectedVal = strtolower($selected_val);
-//     echo "The file selecetd to import is $fileName " ;
-//     echo "The county selected is $selectedVal";
     /*Queries to import Import file data*/
     
     //Drop the existing table for import file data to create new table with the same name
@@ -111,14 +109,6 @@
              ADD PRIMARY KEY (`voter_id`),
              ADD KEY `voter_index` (`first_name`,`middle_name`,`last_name`,`suffix`,`street_no`,`half_code`,`street_name`,`apt_no`,`zip`,`zip4`)"; 
              $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
-    //Set Time zones
-
-    // $query = "SET SQL_MODE = 'NO_AUTO_VALUE_ON_ZERO'";
-    // $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
-    // $query = "SET time_zone = '+00:00'";
-    // $result = $mysqli->query($query) or die($mysqli->error.__LINE__);
-    //Load the data from the file located in the assets/data/import table 
-    //with the name <county>_import to the table that we created in the database
     
              $query4 = "LOAD DATA LOCAL INFILE 'C:/xampp/htdocs/BOE-Importer/assets/data/import/$selected_val$import'
              INTO TABLE `$selected_val$import2` 

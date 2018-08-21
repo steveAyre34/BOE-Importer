@@ -7,9 +7,10 @@ $(document).ready(function () {
 
 (function () {
 
-    $("input[type=submit]").attr("disabled", "disabled");
-    $("#button1").hide();
-    $("#button2").hide();
+    $("input[type=submit]").attr("disabled", "disabled");//Submit button is disabled initially
+    $("#button1").hide();//Initially Error buttons are hidden
+    $("#button2").hide();//Initially Error buttons are hidden
+    $("#modal-body").html("");
     /* for import file of BOE filter */
     $(document).on("change", '#import-file', function () {
         var element = $(this);
@@ -21,26 +22,24 @@ $(document).ready(function () {
         if (notCSV(file)) {
             stopLoader(element);
             errorsDetected($(element).parent().parent().find(".message"), 1);
-            error_messages.push("Must be a .csv File");
+            error_messages.push("File must be a CSV file");
             alert("File must be a CSV file");
             $(element).val('');
             console.log(error_messages);
             $("input[type=submit]").attr("disabled", "disabled");
-            $("#button1").show();
-                            $("#button1").click( function(){
-                                // alert(error_messages);
-                                if(error_messages.length){
-            
-                                    $("#tbody1 tr").remove();
-                                    $("#my-table1").css("background", "white");
-                                    $("#t1").text("Raw File Errors:");
+            $("#button1").show();//Show the errors button if the file is not CSV file
+                            $("#button1").click( function(){//View errors button
+                                $("#modal-body").html("");//Empty the popup window before adding other errors
+                                // popup error messages when the errors button is clicked
+                                if(error_messages.length){//Check if there are any errors in the array
                                     for( i=0; i< error_messages.length; i+=1){
-                                        var row = error_messages[i];
-                                        $("#tbody1").append($('<tr><td></td></tr>').text(row));
+                                        var row = error_messages[i];//take each row
+                                        $("#modal-body").append($('<p></p>').text((i+1)+". "+row));// add row by row to Popup window to display
                                             
                                     }
                                     
                                 }
+
                             });
         }
         else {
@@ -65,8 +64,6 @@ $(document).ready(function () {
                                 stopLoader(element);
                                 readyState($(element).parent().parent().find(".message"));
                                 submitReady($(element).parent().parent().find(".message"));
-                                    
-                                
                             }
                             else {
                                 error_messages = error_messages.concat(header_errors["error_messages"]);
@@ -74,7 +71,6 @@ $(document).ready(function () {
                                 errorsDetected($(element).parent().parent().find(".message"), header_errors["errors"]);
                                 $(element).val('');
                                 submitReady($(element).parent().parent().find(".message"));
-                                // alert("Please make sure that the table headers are in the correct format");
                             }
                         }
                         else {
@@ -83,21 +79,16 @@ $(document).ready(function () {
                             $(element).val('');
                             error_messages.push("Files have different header amounts");
                             submitReady($(element).parent().parent().find(".message"));
-                            // alert("Header sizes are different. Make sure that you are uploading the right file");
                         }
                         console.log(error_messages);
                         if($(element).parent().parent().find(".message").hasClass("not-ready")){
-                            $("#button1").show();
+                            $("#button1").show();//Show the errors button when there are any errors
                             $("#button1").click( function(){
-                                // alert(error_messages);
-                                if(error_messages.length){
-            
-                                    $("#tbody1 tr").remove();
-                                    $("#my-table1").css("background", "white");
-                                    $("#t1").text("Raw File Errors:");
+                                $("#modal-body").html("");//Clear the popup window before adding new errors to the window
+                                if(error_messages.length){//Check if there are any errors
                                     for( i=0; i< error_messages.length; i+=1){
-                                        var row = error_messages[i];
-                                        $("#tbody1").append($('<tr><td></td></tr>').text(row));
+                                        var row = error_messages[i];//Select each row to display
+                                        $("#modal-body").append($('<p></p>').text((i+1)+". "+row));// add errors to the window body
                                             
                                     }
                                     
@@ -105,8 +96,7 @@ $(document).ready(function () {
                         });
                     }
                     else{
-                        $("#button1").hide();
-                        $("#table1 tr").remove();
+                        $("#button1").hide();//Hide the errors button if there are no errors
                     }
                     });
                 }
@@ -130,16 +120,13 @@ $(document).ready(function () {
             $(element).val('');
             console.log(error_messages);
             $("input[type=submit]").attr("disabled", "disabled");
-            $("#button1").show();
+            $("#button1").show();//Show the errors button when there are any errors
                             $("#button1").click( function(){
-                                // alert(error_messages);
-                                if(error_messages.length){
-                                    $("#tbody2 tr").remove();
-                                    $("#my-table2").css("background", "white");
-                                    $("#t2").text("Verified File Errors:");
+                                $("#modal-body").html("");//Clear the popup window before adding new errors to the window
+                                if(error_messages.length){//Check if there are any errors
                                     for( i=0; i< error_messages.length; i+=1){
-                                        var row = error_messages[i];
-                                        $("#tbody2").append($('<tr><td></td></tr>').text(row));
+                                        var row = error_messages[i];//Select each row to display
+                                        $("#modal-body").append($('<p></p>').text((i+1)+". "+row));// add errors to the window body
                                             
                                     }
                                     
@@ -177,7 +164,6 @@ $(document).ready(function () {
                                 errorsDetected($(element).parent().parent().find(".message"), header_errors["errors"]);
                                 $(element).val('');
                                 submitReady($(element).parent().parent().find(".message"));
-                                // alert("Please make sure that the table headers are in the correct format");
                             }
                         }
                         else {
@@ -186,30 +172,23 @@ $(document).ready(function () {
                             $(element).val('');
                             error_messages.push("Files have different header amounts");
                             submitReady($(element).parent().parent().find(".message"));
-                            // alert("Header sizes are different. Make sure that you are uploading the right file");
                         }
                         console.log(error_messages);
                         if($(element).parent().parent().find(".message").hasClass("not-ready")){
-                            $("#button2").show();
-                            $("#button2").click( function(){
-                                // alert(error_messages);
+                            $("#button2").show();//Show the errors button when there are any errors
+                            $("#button2").click( function(){//Check if there are any errors
+                                $("#modal-body").html("");//Clear the popup window before adding new errors to the window
                                 if(error_messages.length){
-            
-                                    $("#tbody2 tr").remove();
-                                    $("#my-table2").css("background", "white");
-                                    $("#t2").text("Verified File Errors:");
                                     for( i=0; i< error_messages.length; i+=1){
-                                        var row = error_messages[i];
-                                        $("#tbody2").append($('<tr><td></td></tr>').text(row));
+                                        var row = error_messages[i];//Select each row to display
+                                        $("#modal-body").append($('<p></p>').text((i+1)+". "+row));// add errors to the window body
                                             
                                     }
-                                    
                                 }
                         });
                     }
                     else{
-                        $("#button2").hide();
-                        $("#table2 tr").remove();
+                        $("#button2").hide();//Hide the errors button if there are no errors
                     }
                     });
                 }
@@ -280,17 +259,12 @@ function readyState(element) {
     $(element).text("Ready");
     
 }
-
-function submitReady(element){
-        // $("select.county").change(function(){
-        // var selectedCounty = ;
-        
+/* This function is to enable or disable the submit button accordingly */
+function submitReady(element){   
             if($(element).hasClass("not-ready")){
                 $("input[type=submit]").attr("disabled", "disabled");   
             }else if($(element).hasClass("ready")){
                 $("#submit").removeAttr("disabled");
             }
-        // });
 }
 
-// $('#sel-destination-tour').val() && 

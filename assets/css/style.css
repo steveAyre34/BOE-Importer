@@ -4,7 +4,7 @@
     text-align: center; 
     padding: 100px 0; 
     /* vertical-align: middle;  */
-    margin-top: 20px;
+    margin-top: 100px;
 }
 
 /* UNIVERSAL */
@@ -67,8 +67,7 @@
 }
 #locality-dropdown{
     font-size: medium;
-    height: 30px;
-
+    height: 40px;
 }
 
 input[type='file']{
@@ -79,6 +78,8 @@ input[type = 'submit']{
     background: green;
     font-size: large;
     color:white;
+    height:50px;
+    Width: 100px;
 }
 
 input[disabled= 'disabled']{
@@ -94,33 +95,17 @@ b{
     color: red;
 }
 
-#my-table1{
-
-/* background: white; */
-width: 50%;
-text-align: center;
-margin-left: 25%;
-margin-right:25%;
-margin-top:2%;
-
-
+div.modal-body
+{
+   width: 500px;
+   height: 250px;
+   overflow:scroll;
 }
-#my-table2{
-
-    /* background: white; */
-    width: 50%;
-    text-align: center;
-    margin-left: 25%;
-    margin-right:25%;
-    margin-top:2%;
-    
-    
-    }
-
-th{
-    color:red;
+h4.modal-title{
+    color: red;
+    font-style: italic;
 }
-tr{
-    color:blue;
+input,#button1,#button2{
+    border-radius: 12px;
 }
 
